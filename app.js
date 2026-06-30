@@ -1,6 +1,22 @@
 // FBLA Quiz App Controller Logic
 
 document.addEventListener("DOMContentLoaded", () => {
+  // --- THEME TOGGLER ---
+  const themeToggle = document.getElementById("theme-toggle");
+  const savedTheme = localStorage.getItem("fbla_quiz_theme") || "dark";
+  
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
+      const currentTheme = document.body.classList.contains("light-theme") ? "light" : "dark";
+      localStorage.setItem("fbla_quiz_theme", currentTheme);
+    });
+  }
+
   // --- APP STATE ---
   let state = {
     // Nav & Screens
