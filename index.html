@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBLA Networking Infrastructures National Champion Quizzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">FN</div>
+        <div class="logo-text">
+          <h1>FBLA NetInfra</h1>
+          <span>National Edition</span>
+        </div>
+      </div>
+      
+      <ul class="nav-links">
+        <li class="nav-item active" data-screen="dashboard">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          <span>Dashboard</span>
+        </li>
+        <li class="nav-item" id="nav-ref-sheet" data-screen="study">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3a1 1 0 0 1 1-1h15v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+          <span>Study Reference</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <p>Study Account<br><strong>0 XP</strong></p>
+        <span class="badge">Lvl 1</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- SCREEN: DASHBOARD -->
+      <section id="screen-dashboard" class="screen active">
+        <div class="dashboard-header">
+          <div class="dashboard-title">
+            <h2>FBLA National Champion Training</h2>
+            <p>Master 100% of the Networking Infrastructures competitive guidelines and study notes.</p>
+          </div>
+          <div class="level-badge">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span id="stat-level-badge">Level <span id="stat-level">1</span></span>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Experience</p>
+              <h3 id="stat-xp">0 XP</h3>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon cyan">
+              <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Mock Exams Taken</p>
+              <h3 id="stat-exams">0</h3>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Best Exam Score</p>
+              <h3 id="stat-best">0%</h3>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon gold">
+              <svg viewBox="0 0 24 24"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Practice Answered</p>
+              <h3 id="stat-practice">0</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practice Modes -->
+        <h3 class="modes-title">Training Simulators</h3>
+        <div class="modes-grid">
+          <!-- Timed Exam -->
+          <div class="mode-card" id="btn-start-exam">
+            <div class="mode-header">
+              <span class="mode-badge exam">Timed Simulator</span>
+              <div class="mode-icon" style="color: var(--error);">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+            </div>
+            <div class="mode-body">
+              <h3>FBLA Mock Examination</h3>
+              <p>Complete 100 multiple-choice questions matching the official FBLA blueprint. 50-minute timer with national tiebreaker parameters.</p>
+            </div>
+            <div class="mode-footer">
+              <span class="mode-start-btn">Launch Exam &rarr;</span>
+              <span class="mode-meta">100 Questions • 50 Mins</span>
+            </div>
+          </div>
+
+          <!-- Section Practice -->
+          <div class="mode-card" id="btn-open-practice">
+            <div class="mode-header">
+              <span class="mode-badge practice">Topic Focused</span>
+              <div class="mode-icon" style="color: var(--accent-cyan);">
+                <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+            </div>
+            <div class="mode-body">
+              <h3>Categorized Study Practice</h3>
+              <p>Practice untimed questions divided by official FBLA sections. View step-by-step correct explanations immediately after answering.</p>
+            </div>
+            <div class="mode-footer">
+              <span class="mode-start-btn">Choose Category &rarr;</span>
+              <span class="mode-meta">Untimed • Explanations</span>
+            </div>
+          </div>
+
+          <!-- Procedural Generator -->
+          <div class="mode-card" id="btn-open-generator" style="grid-column: span 2;">
+            <div class="mode-header">
+              <span class="mode-badge generator">Infinite Mode</span>
+              <div class="mode-icon" style="color: var(--accent-purple); box-shadow: 0 0 10px rgba(155, 81, 224, 0.2);">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+            </div>
+            <div class="mode-body">
+              <h3>Infinite Dynamic Question Generator</h3>
+              <p>Practice with programmatically generated questions. Includes infinite subnetting equations (Network ID, mask, hosts calculation), randomized Port-to-Protocol associations, OSI layering matching, and AppleTalk protocols.</p>
+            </div>
+            <div class="mode-footer">
+              <span class="mode-start-btn">Configure Generator &rarr;</span>
+              <span class="mode-meta">Subnets • Ports • OSI • AppleTalk</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: QUIZ INTERFACE -->
+      <section id="screen-quiz" class="screen">
+        <div class="quiz-header-bar">
+          <div class="quiz-title-badge">
+            <span class="logo-icon" style="width:32px;height:32px;font-size:0.95rem;">Q</span>
+            <div class="question-meta" id="question-meta">Category Area • Question 1 of 100</div>
+          </div>
+          <div class="quiz-timer" id="timer-display">50:00</div>
+        </div>
+
+        <div class="quiz-layout">
+          <!-- Left side: Question card -->
+          <div class="question-area">
+            <div class="question-card">
+              <div class="question-card-header">
+                <span class="question-meta" style="color: var(--text-muted);">Multiple Choice</span>
+                <button class="btn-flag" id="btn-flag">
+                  <svg viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg> Flag
+                </button>
+              </div>
+              
+              <div class="question-text" id="question-text">
+                Which protocol is responsible for resolving a logical IP address to a physical MAC address on a local area network?
+              </div>
+
+              <div class="choices-list" id="choices-container">
+                <!-- choices injected via JS -->
+              </div>
+
+              <!-- Explanation block (shown on-click in practice/generator modes) -->
+              <div class="explanation-card" id="explanation-card">
+                <div class="explanation-title">
+                  <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Detailed Explanation
+                </div>
+                <div class="explanation-text">
+                  ARP (Address Resolution Protocol) broadcasts a request on the local segment to resolve an IP address to a MAC address.
+                </div>
+              </div>
+            </div>
+
+            <!-- navigation buttons -->
+            <div class="quiz-controls">
+              <button class="btn-nav prev" id="btn-prev">&larr; Previous</button>
+              <button class="btn-nav next" id="btn-next">Next &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Right side: Progress tracker grid -->
+          <div class="quiz-sidebar">
+            <div class="progress-section">
+              <div class="progress-header">
+                <span class="grid-title">Session Progress</span>
+                <span id="progress-count">0/100 Completed</span>
+              </div>
+              <div class="progress-bar-container" style="margin-top: 0.5rem;">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+              </div>
+            </div>
+            
+            <div class="grid-section">
+              <span class="grid-title" style="display:block;margin-bottom:0.75rem;">Question Navigation Map</span>
+              <div class="questions-grid" id="questions-grid">
+                <!-- grid nodes injected via JS -->
+              </div>
+            </div>
+
+            <button class="btn-submit-exam" id="btn-submit-exam">Submit FBLA Exam</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: RESULTS REPORT -->
+      <section id="screen-results" class="screen">
+        <div class="results-card">
+          <div class="results-radial">
+            <svg>
+              <defs>
+                <linearGradient id="cyan-purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--accent-cyan)" />
+                  <stop offset="100%" stop-color="var(--accent-purple)" />
+                </linearGradient>
+              </defs>
+              <circle class="radial-bg" cx="90" cy="90" r="80" />
+              <circle class="radial-fill" id="radial-fill" cx="90" cy="90" r="80" />
+            </svg>
+            <div class="radial-text">
+              <span class="radial-score" id="radial-score">0%</span>
+              <span class="radial-label">Final Score</span>
+            </div>
+          </div>
+
+          <div class="results-message">
+            <h3 id="results-title">Grading Exam...</h3>
+            <p id="results-desc">Your results are being compiled relative to national standards.</p>
+          </div>
+
+          <!-- stats row -->
+          <div class="results-stats-row">
+            <div class="result-mini-card">
+              <p>Correct Answers</p>
+              <h4 id="res-stat-correct">0/100</h4>
+            </div>
+            <div class="result-mini-card">
+              <p>Time Taken</p>
+              <h4 id="res-stat-time">00m 00s</h4>
+            </div>
+            <div class="result-mini-card">
+              <p>XP Earned</p>
+              <h4 id="res-stat-xp">+0 XP</h4>
+            </div>
+          </div>
+
+          <!-- Category performance -->
+          <h3 class="grid-title" style="text-align:left;width:100%;margin-top:1rem;">Category Performance Breakdown</h3>
+          <div class="category-breakdown" id="results-breakdown">
+            <!-- category scores injected via JS -->
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-action primary" id="btn-results-dash">Return to Dashboard</button>
+            <button class="btn-action secondary" id="btn-review-questions">Review All Questions</button>
+          </div>
+        </div>
+
+        <!-- Detailed Question Review Section -->
+        <div id="results-review-section" style="display: none; margin-top: 2rem;">
+          <h3 class="dashboard-title" style="margin-bottom:1.5rem;">Detailed Question Breakdown</h3>
+          <div id="results-review-list">
+            <!-- questions card review injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: STUDY SHEETS REFERENCE -->
+      <section id="screen-study" class="screen">
+        <div class="dashboard-header">
+          <div class="dashboard-title">
+            <h2>Interactive FBLA Study Reference</h2>
+            <p>100% of event objective notes compiled into structured tabs for rapid memorization.</p>
+          </div>
+        </div>
+
+        <div class="study-grid">
+          <!-- Left nav tabs -->
+          <nav class="study-nav">
+            <div class="study-nav-btn active" data-section="basics">1. Networking Basics</div>
+            <div class="study-nav-btn" data-section="osi">2. OSI Layer Model</div>
+            <div class="study-nav-btn" data-section="trouble">3. Troubleshooting & CLI</div>
+            <div class="study-nav-btn" data-section="topologies">4. Topologies & Cloud</div>
+            <div class="study-nav-btn" data-section="security">5. Security & AAA</div>
+            <div class="study-nav-btn" data-section="ports">6. Ports Dictionary</div>
+            <div class="study-nav-btn" data-section="standards">7. IEEE 802.11 & 802.3</div>
+            <div class="study-nav-btn" data-section="routing">8. Routing Protocols</div>
+            <div class="study-nav-btn" data-section="appletalk">9. AppleTalk Stack</div>
+            <div class="study-nav-btn" data-section="backups">10. Backups & Redundancy</div>
+          </nav>
+
+          <!-- Right content viewer -->
+          <div class="study-content-viewer">
+            
+            <!-- SECTION 1: BASICS -->
+            <div class="study-content-section active" id="study-sec-basics">
+              <h3 class="study-title">1. Networking Basics</h3>
+              <div class="study-block">
+                <h4>Types of LANs</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>SOHO (Small Office/Home Office):</strong> Simple design, limited hosts, uses standard WPA, standalone access points, operates flat networks (no subnets) with unmanaged switches. Uses low-power IoT protocols like Z-Wave.</li>
+                  <li class="study-list-item"><strong>Enterprise LANs:</strong> Hierarchical architecture, lightweight APs (LWAP) managed by a centralized WLC (Wireless LAN Controller), uses VLANs (Layer 2 segmentation via 802.1Q tags), 802.1X/RADIUS authentication.</li>
+                  <li class="study-list-item"><strong>Datacenter LANs:</strong> Ultra high-speed (40/100+ Gbps), redundant links, uses Spine-Leaf structures, blade server consolidation, SAN and NAS storage.</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>VLANs vs VXLANs</h4>
+                <table class="study-table">
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>VLAN (802.1Q)</th>
+                      <th>VXLAN (Virtual Extensible LAN)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Network ID Size</strong></td>
+                      <td>12-bit ID</td>
+                      <td>24-bit VNI (VXLAN Network Identifier)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Max Networks</strong></td>
+                      <td>4,096 logical networks</td>
+                      <td>Over 16 million logical networks</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Routing Method</strong></td>
+                      <td>Trunk ports (802.1Q tags) across switches</td>
+                      <td>MAC-in-IP encapsulation (Layer 3 overlay tunnels via VTEP)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Primary Use</strong></td>
+                      <td>Standard enterprise networks</td>
+                      <td>Large scale datacenters and cloud providers</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="study-block">
+                <h4>VLAN Security Attacks</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Switch Spoofing:</strong> Ripped switches establish trunking links with other switches by sending mock Dynamic Trunking Protocol (DTP) negotiations, granting access to all VLANs.</li>
+                  <li class="study-list-item"><strong>Double Tagging:</strong> Attacker prepends two VLAN tags. The first switch removes the outer tag and immediately forwards the frame to the next switch, which drops it into the target VLAN (inner tag) without check.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 2: OSI LAYER MODEL -->
+            <div class="study-content-section" id="study-sec-osi">
+              <h3 class="study-title">2. OSI Layer Model Reference</h3>
+              <table class="study-table">
+                <thead>
+                  <tr>
+                    <th>Layer</th>
+                    <th>Name</th>
+                    <th>PDU</th>
+                    <th>Key Devices / Protocols / Concepts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Layer 7</strong></td>
+                    <td>Application</td>
+                    <td>Data</td>
+                    <td>HTTP, HTTPS, FTP, SFTP, SMTP, DNS, DHCP, SNMP, AFP. User-facing interface.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 6</strong></td>
+                    <td>Presentation</td>
+                    <td>Data</td>
+                    <td>Encryption/Decryption (SSL/TLS), Compression, STARTTLS, ASCII, JPEG.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 5</strong></td>
+                    <td>Session</td>
+                    <td>Data</td>
+                    <td>NetBIOS, RPC, session checkpoints (Start/Stop/Restart dialog controllers).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 4</strong></td>
+                    <td>Transport</td>
+                    <td>Segment (TCP) / Datagram (UDP)</td>
+                    <td>TCP (stateful 3-way handshake SYN-SYNACK-ACK), UDP (best effort), Port Numbers, flow control (Window Size), checksums, urgent pointers.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 3</strong></td>
+                    <td>Network</td>
+                    <td>Packet</td>
+                    <td>Routers, IP Addresses, ICMP, Dynamic Routing (OSPF, RIP, BGP), TTL (Time to Live), NAT/PAT.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 2</strong></td>
+                    <td>Data Link</td>
+                    <td>Frame</td>
+                    <td>Switches, MAC Addresses, ARP (IP to MAC), Bridges, Token Passing, LLDP/CDP, LLC, 802.1Q tags.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Layer 1</strong></td>
+                    <td>Physical</td>
+                    <td>Bits</td>
+                    <td>Hubs, Repeaters, Cables (fiber, copper, coaxial), Connectors (RJ45, LC/SC), CPE, TDR.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- SECTION 3: TROUBLESHOOTING & CLI -->
+            <div class="study-content-section" id="study-sec-trouble">
+              <h3 class="study-title">3. Troubleshooting & CLI Tools</h3>
+              <div class="study-block">
+                <h4>6-Step CompTIA Methodology</h4>
+                <ol class="study-list" style="list-style:decimal; padding-left:1.5rem;">
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Identify the problem:</strong> Gather symptoms (S), identify affected areas/duplicate, determine if anything Changed, recognize Consequential effects (SICC).</li>
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Establish a theory of probable cause:</strong> Evaluate obvious causes, research standard databases.</li>
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Test the theory to determine cause:</strong> Validate the theory. If failed, establish a new theory.</li>
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Establish a plan of action:</strong> Outline resolution tasks, identify potential side effects, and implement the solution.</li>
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Verify full system functionality:</strong> Check complete system, implement preventive measures.</li>
+                  <li class="study-list-item" style="margin-bottom:0.5rem;"><strong>Document findings:</strong> Note actions taken, lessons learned, and outcomes in a log database.</li>
+                </ol>
+              </div>
+              <div class="study-block">
+                <h4>CLI Diagnostic Commands</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>ping:</strong> Sends ICMP Type 8 (Echo Request) and waits for ICMP Type 0 (Echo Reply) to verify reachability.</li>
+                  <li class="study-list-item"><strong>tracert (Windows) / traceroute (Unix):</strong> Maps the route to a host by sending packets with incrementing TTL values, recording the source IP of returning ICMP Type 11 (Time Exceeded) warnings.</li>
+                  <li class="study-list-item"><strong>ipconfig (Windows) / ifconfig (Unix):</strong> Shows IP settings, subnet masks, DNS servers, and gateways for active network adapters.</li>
+                  <li class="study-list-item"><strong>netstat:</strong> Lists active TCP/UDP socket connections, listening ports, and ethernet traffic logs.</li>
+                  <li class="study-list-item"><strong>nslookup:</strong> Queries name servers directly to resolve domain names to IP addresses (or reverse PTR lookups).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 4: TOPOLOGIES & CLOUD -->
+            <div class="study-content-section" id="study-sec-topologies">
+              <h3 class="study-title">4. Network Topologies & Cloud Architecture</h3>
+              <div class="study-block">
+                <h4>Topologies Reference</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Star:</strong> Central switch/hub connected to all devices. Most common and reliable for SMBs. Single point of failure is the central switch.</li>
+                  <li class="study-list-item"><strong>Mesh:</strong> Every node connected (Full) or partially connected (Partial). Max redundancy, very expensive. Formula: <code>n(n-1)/2</code> links.</li>
+                  <li class="study-list-item"><strong>Bus:</strong> Single backbone cable with terminators. Collisions are high (uses CSMA/CD). Obsolete.</li>
+                  <li class="study-list-item"><strong>Leaf-Spine:</strong> Two-tier architecture for datacenters. Every leaf (aggregators connected to hosts) links to every spine (high-speed core switch backbone).</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>Cloud Delivery Models</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>IaaS (Infrastructure as a Service):</strong> Provider handles hardware, virtualization, and storage. User manages OS, applications, and network firewalls (e.g. AWS EC2, Azure VMs).</li>
+                  <li class="study-list-item"><strong>PaaS (Platform as a Service):</strong> Provider manages OS, virtualization, and hardware. User gets deployment suites and APIs to run code without managing servers (e.g. Google App Engine).</li>
+                  <li class="study-list-item"><strong>SaaS (Software as a Service):</strong> Provider handles the entire stack. User interacts with prebuilt software directly over a browser (e.g. Google Workspace, Office 365).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 5: SECURITY & AAA -->
+            <div class="study-content-section" id="study-sec-security">
+              <h3 class="study-title">5. Network Security, Cryptography & AAA</h3>
+              <div class="study-block">
+                <h4>AAA Framework</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Authentication:</strong> Proves identity (credentials, certificates, tokens).</li>
+                  <li class="study-list-item"><strong>Authorization:</strong> Dictates what actions or access levels the identity possesses (via ACLs, RBAC, ABAC).</li>
+                  <li class="study-list-item"><strong>Accounting:</strong> Tracks and logs what resources the identity consumed (auditing logins, commands).</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>Access Control Models</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>RBAC (Role-Based):</strong> Access assigned to standard business roles (e.g. Administrator, Manager).</li>
+                  <li class="study-list-item"><strong>ABAC (Attribute-Based):</strong> Context-aware permissions checking dynamic attributes (e.g. login time, host location, device posture).</li>
+                  <li class="study-list-item"><strong>DAC (Discretionary):</strong> The resource owner (creator of a file) determines who gets read/write access.</li>
+                  <li class="study-list-item"><strong>MAC (Mandatory):</strong> System-enforced access based on classification labels (e.g. Secret, Top Secret) and clearable levels. Admin-controlled.</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>Port Security Violation Actions</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Protect:</strong> Drops offending packets. Operates silently without notifications or incrementing counters.</li>
+                  <li class="study-list-item"><strong>Restrict:</strong> Drops offending packets, increments the security violation count, generates a Syslog message/SNMP trap.</li>
+                  <li class="study-list-item"><strong>Shutdown:</strong> Instantly transitions the port to the <code>err-disable</code> state, turning it off. Requires administrator intervention to reset.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 6: PORTS DICTIONARY -->
+            <div class="study-content-section" id="study-sec-ports">
+              <h3 class="study-title">6. Ports and Protocols Dictionary</h3>
+              <table class="study-table" id="ports-table-reference">
+                <thead>
+                  <tr>
+                    <th>Port</th>
+                    <th>Protocol</th>
+                    <th>Transport</th>
+                    <th>Primary Function / Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Filled via JS or plain HTML, plain HTML here to ensure 100% local stability -->
+                  <tr><td><strong>20</strong></td><td>FTP Data</td><td>TCP</td><td>Data transfer for FTP (File Transfer Protocol). Plaintext.</td></tr>
+                  <tr><td><strong>21</strong></td><td>FTP Control</td><td>TCP</td><td>Control channel for FTP commands. Plaintext.</td></tr>
+                  <tr><td><strong>22</strong></td><td>SSH / SFTP</td><td>TCP</td><td>Secure Shell remote CLI login / SSH File Transfer (encrypted).</td></tr>
+                  <tr><td><strong>23</strong></td><td>Telnet</td><td>TCP</td><td>Insecure remote terminal access. Plaintext.</td></tr>
+                  <tr><td><strong>25</strong></td><td>SMTP (Plaintext)</td><td>TCP</td><td>Simple Mail Transfer Protocol for sending email between servers.</td></tr>
+                  <tr><td><strong>53</strong></td><td>DNS</td><td>UDP/TCP</td><td>Domain Name System queries (UDP) / DNS Zone Transfers (TCP).</td></tr>
+                  <tr><td><strong>67</strong></td><td>DHCP Server</td><td>UDP</td><td>Server port for dynamic IP configuration.</td></tr>
+                  <tr><td><strong>68</strong></td><td>DHCP Client</td><td>UDP</td><td>Client port for dynamic IP requests.</td></tr>
+                  <tr><td><strong>80</strong></td><td>HTTP</td><td>TCP</td><td>Hypertext Transfer Protocol for web pages. Plaintext.</td></tr>
+                  <tr><td><strong>110</strong></td><td>POP3</td><td>TCP</td><td>Post Office Protocol v3. Downloads emails to local storage.</td></tr>
+                  <tr><td><strong>123</strong></td><td>NTP</td><td>UDP</td><td>Network Time Protocol for syncing clocks. Critical for event logs.</td></tr>
+                  <tr><td><strong>143</strong></td><td>IMAP4</td><td>TCP</td><td>Internet Message Access Protocol. Syncs emails on remote server.</td></tr>
+                  <tr><td><strong>161</strong></td><td>SNMP</td><td>UDP</td><td>Simple Network Management Protocol queries.</td></tr>
+                  <tr><td><strong>162</strong></td><td>SNMP Trap</td><td>UDP</td><td>SNMP asynchronous agent alerts sent to management servers.</td></tr>
+                  <tr><td><strong>389</strong></td><td>LDAP</td><td>TCP/UDP</td><td>Lightweight Directory Access Protocol. Querying directory logs.</td></tr>
+                  <tr><td><strong>443</strong></td><td>HTTPS</td><td>TCP</td><td>HTTP Secure. Web pages encrypted via TLS/SSL.</td></tr>
+                  <tr><td><strong>445</strong></td><td>SMB</td><td>TCP</td><td>Server Message Block. Windows printer and file sharing.</td></tr>
+                  <tr><td><strong>465</strong></td><td>SMTP (Secure)</td><td>TCP</td><td>SMTP encrypted via TLS/SSL.</td></tr>
+                  <tr><td><strong>514</strong></td><td>Syslog</td><td>UDP</td><td>System message logging, forwarding alerts to SIEM.</td></tr>
+                  <tr><td><strong>853</strong></td><td>DoT</td><td>TCP</td><td>DNS over TLS. Encrypted hostname lookups.</td></tr>
+                  <tr><td><strong>990</strong></td><td>FTPS (Implicit)</td><td>TCP</td><td>FTP Secure. Implicit TLS/SSL negotiation.</td></tr>
+                  <tr><td><strong>3389</strong></td><td>RDP</td><td>TCP</td><td>Remote Desktop Protocol for screen takeovers.</td></tr>
+                  <tr><td><strong>5060</strong></td><td>SIP (Plain)</td><td>TCP/UDP</td><td>Session Initiation Protocol for VoIP session setups.</td></tr>
+                  <tr><td><strong>5061</strong></td><td>SIP (Secure)</td><td>TCP</td><td>SIP encrypted via TLS.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- SECTION 7: IEEE STANDARDS -->
+            <div class="study-content-section" id="study-sec-standards">
+              <h3 class="study-title">7. IEEE 802.11 & 802.3 Standards</h3>
+              <div class="study-block">
+                <h4>802.11 Wireless Standards</h4>
+                <table class="study-table">
+                  <thead>
+                    <tr>
+                      <th>Standard</th>
+                      <th>Marketing Name</th>
+                      <th>Frequency</th>
+                      <th>Theoretical Max Speed</th>
+                      <th>Key Technologies</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>802.11b</strong></td><td>Wi-Fi 1</td><td>2.4 GHz</td><td>11 Mbps</td><td>DSSS modulation</td></tr>
+                    <tr><td><strong>802.11a</strong></td><td>Wi-Fi 2</td><td>5 GHz</td><td>54 Mbps</td><td>OFDM modulation</td></tr>
+                    <tr><td><strong>802.11g</strong></td><td>Wi-Fi 3</td><td>2.4 GHz</td><td>54 Mbps</td><td>OFDM modulation (backward compatible with b)</td></tr>
+                    <tr><td><strong>802.11n</strong></td><td>Wi-Fi 4</td><td>2.4 / 5 GHz</td><td>600 Mbps</td><td>MIMO (Multiple Input Multiple Output) streams</td></tr>
+                    <tr><td><strong>802.11ac</strong></td><td>Wi-Fi 5</td><td>5 GHz</td><td>6.9 Gbps</td><td>MU-MIMO, Beamforming (directing radio signals)</td></tr>
+                    <tr><td><strong>802.11ax</strong></td><td>Wi-Fi 6 / 6e</td><td>2.4 / 5 / 6 GHz</td><td>9.6 Gbps</td><td>OFDMA (divides channels into RUs), high-density focus</td></tr>
+                    <tr><td><strong>802.11be</strong></td><td>Wi-Fi 7</td><td>2.4 / 5 / 6 GHz</td><td>46 Gbps</td><td>320 MHz channels, Multi-Link Operation (MLO)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="study-block">
+                <h4>PoE (Power over Ethernet) Specs</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>IEEE 802.3af (PoE):</strong> Delivers up to 15.4W of DC power.</li>
+                  <li class="study-list-item"><strong>IEEE 802.3at (PoE+):</strong> Delivers up to 30W of DC power. Ideal for PTZ cameras and basic APs.</li>
+                  <li class="study-list-item"><strong>IEEE 802.3bt (PoE++ / Type 4):</strong> Delivers up to 60W or 90W of DC power. Supplies high-power smart devices.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 8: ROUTING PROTOCOLS -->
+            <div class="study-content-section" id="study-sec-routing">
+              <h3 class="study-title">8. Dynamic Routing Protocols</h3>
+              <div class="study-block">
+                <h4>OSPF (Open Shortest Path First)</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Class:</strong> Link-State routing protocol. Dijkstra algorithm constructs shortest path.</li>
+                  <li class="study-list-item"><strong>OSPF LSAs (Link State Advertisements):</strong>
+                    <ul style="padding-left:1.5rem; list-style-type:circle;">
+                      <li><strong>Type 1 (Router LSA):</strong> Describes local router interfaces and link states within an area.</li>
+                      <li><strong>Type 2 (Network LSA):</strong> Sent by Designated Routers (DR) detailing nodes on a shared segment.</li>
+                      <li><strong>Type 3 (Summary LSA):</strong> Sent by Area Border Routers (ABR) to advertise routes between different areas.</li>
+                      <li><strong>Type 5 (AS External LSA):</strong> Advertises routes imported from external systems (by ASBR).</li>
+                    </ul>
+                  </li>
+                  <li class="study-list-item"><strong>Areas:</strong> Hierarchical structure. Area 0 is the backbone. All other areas must connect directly to Area 0 via an ABR.</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>EIGRP & BGP</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>EIGRP:</strong> Advanced distance-vector (hybrid). Uses the DUAL algorithm. Metrics are bandwidth and cumulative delay. Fast convergence via precalculated backups called Feasible Successors. Supports unequal cost load balancing.</li>
+                  <li class="study-list-item"><strong>BGP:</strong> Path-vector protocol. BGP acts as the 'Protocol of the Internet', exchanging routes between Autonomous Systems (AS) over TCP port 179. Highly configurable policies.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 9: APPLETALK STACK -->
+            <div class="study-content-section" id="study-sec-appletalk">
+              <h3 class="study-title">9. AppleTalk Protocol Suite</h3>
+              <p style="margin-bottom:1.5rem; color:var(--text-secondary);">AppleTalk is a legacy proprietary suite of protocols developed by Apple for networking Macintosh systems, structured into layers mapping directly to the OSI model.</p>
+              
+              <div class="study-block">
+                <h4>Data Link & Network Layers (Layers 2 & 3)</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>LLAP (LocalTalk Link Access Protocol):</strong> Layer 2 protocol handling physical frames over original serial cabling.</li>
+                  <li class="study-list-item"><strong>EtherTalk/TokenTalk/FDDITalk:</strong> Adapters allowing AppleTalk to transport frames over standard network cabling.</li>
+                  <li class="study-list-item"><strong>AARP (AppleTalk Address Resolution):</strong> Resolves logical network nodes to physical hardware MAC addresses.</li>
+                  <li class="study-list-item"><strong>DDP (Datagram Delivery Protocol):</strong> Core best-effort socket routing protocol (Layer 3).</li>
+                </ul>
+              </div>
+
+              <div class="study-block">
+                <h4>Transport & Session Layers (Layers 4 & 5)</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>RTMP (Routing Table Maintenance):</strong> Periodic distance-vector routing table broadcasts.</li>
+                  <li class="study-list-item"><strong>AURP (Update-Based Routing):</strong> Sends routing announcements only when a change occurs, replacing periodic broadcasts.</li>
+                  <li class="study-list-item"><strong>NBP (Name Binding Protocol):</strong> Maps human-readable device tags to logical numbers (DNS function).</li>
+                  <li class="study-list-item"><strong>ATP (Transaction Protocol):</strong> Standard reliable request-response transaction execution.</li>
+                  <li class="study-list-item"><strong>AEP (Echo Protocol):</strong> Tests connectivity and round-trip times (Ping function).</li>
+                  <li class="study-list-item"><strong>ZIP (Zone Information Protocol):</strong> Collects network numbers into logical zone groupings.</li>
+                  <li class="study-list-item"><strong>PAP (Printer Access Protocol):</strong> Manages connections to network printer queues.</li>
+                  <li class="study-list-item"><strong>ADSP (Data Stream Protocol):</strong> Full-duplex connection-oriented stream controller.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SECTION 10: BACKUPS -->
+            <div class="study-content-section" id="study-sec-backups">
+              <h3 class="study-title">10. Backups, UPS & Server Infrastructure</h3>
+              <div class="study-block">
+                <h4>Backup Types</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Full Backup:</strong> Copies all files, regardless of change status. Resets the archive bit. Slowest to write, fastest to restore (1 file).</li>
+                  <li class="study-list-item"><strong>Incremental Backup:</strong> Copies only files changed since the last backup of any type. Resets the archive bit. Fastest to write, slowest to restore (requires last full and every incremental in sequence).</li>
+                  <li class="study-list-item"><strong>Differential Backup:</strong> Copies files changed since the last full backup. Does not reset the archive bit. Medium write speed, fast restore (requires last full and the final differential file).</li>
+                </ul>
+              </div>
+              <div class="study-block">
+                <h4>UPS (Uninterruptible Power Supply) Types</h4>
+                <ul class="study-list">
+                  <li class="study-list-item"><strong>Standby (Off-line):</strong> Simplest and cheapest. Devices run off utility power. Inverter kicks in when power drops. Switch time: ~10ms. Best for simple workstations.</li>
+                  <li class="study-list-item"><strong>Line-Interactive:</strong> Contains a variable transformer that regulates voltage sags and spikes without switching to battery. Switch time: 2–6ms. Best for basic server rooms.</li>
+                  <li class="study-list-item"><strong>Online Double Conversion:</strong> Utility AC is constantly converted to DC to charge batteries, then back to AC for clean output. Zero switch time (0ms). Maximum security, highest cost. Required for critical datacenters.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL: Category Selector Practice -->
+  <div class="modal-overlay" id="modal-practice">
+    <div class="modal-content">
+      <button class="modal-close-btn">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-header">
+        <h3>Choose Practice Topic</h3>
+      </div>
+      <div class="modal-body">
+        <p>Select a specific FBLA Networking area to practice. Untimed session with instant explanations.</p>
+        <div class="generator-options">
+          <button class="gen-option-btn practice-option-btn" data-category="all">
+            <span>All Categories Mixed</span>
+            <span class="tag">Mixed</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="Networking Basics">
+            <span>Networking Basics</span>
+            <span class="tag">OSI / Subnets</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="Network Topologies and Architecture">
+            <span>Topologies & Architecture</span>
+            <span class="tag">Cloud / Topologies</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="Network Security">
+            <span>Network Security</span>
+            <span class="tag">AAA / Attacks</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="Network Protocols and Standards">
+            <span>Protocols & Standards</span>
+            <span class="tag">Wi-Fi / Ethernet</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="Network Hardware and Connectivity">
+            <span>Hardware & Connectivity</span>
+            <span class="tag">RAID / Cables</span>
+          </button>
+          <button class="gen-option-btn practice-option-btn" data-category="AppleTalk">
+            <span>AppleTalk Stack</span>
+            <span class="tag">Legacy Protocols</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Infinite Question Generator Settings -->
+  <div class="modal-overlay" id="modal-generator">
+    <div class="modal-content">
+      <button class="modal-close-btn">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-header">
+        <h3>Dynamic Generator Options</h3>
+      </div>
+      <div class="modal-body">
+        <p>Configure the procedural engine to generate infinite randomized equations for practice.</p>
+        <div class="generator-options">
+          <button class="gen-option-btn" data-type="random">
+            <span>Random Generator Mix</span>
+            <span class="tag">Infinite Mix</span>
+          </button>
+          <button class="gen-option-btn" data-type="subnet">
+            <span>Infinite Subnetting Trainer</span>
+            <span class="tag">Network/Broadcast IDs</span>
+          </button>
+          <button class="gen-option-btn" data-type="port">
+            <span>Infinite Port-to-Protocol Matcher</span>
+            <span class="tag">Ports 0-65535</span>
+          </button>
+          <button class="gen-option-btn" data-type="osi">
+            <span>Infinite OSI Layer Mapper</span>
+            <span class="tag">Layers 1-7 Mapping</span>
+          </button>
+          <button class="gen-option-btn" data-type="appletalk">
+            <span>Infinite AppleTalk Mapper</span>
+            <span class="tag">Legacy Mapping</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOAD APPLICATION SCRIPTS -->
+  <script src="questions.js"></script>
+  <script src="procedural.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
