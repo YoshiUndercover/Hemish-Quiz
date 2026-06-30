@@ -3342,6 +3342,292 @@ window.FBLA_QUESTIONS = [
     ],
     "correctIndex": 1,
     "explanation": "RAID 0 splits data across drives to increase performance, but provides no fault tolerance or redundancy."
+  },
+  {
+    "id": "basics-41",
+    "category": "Networking Basics",
+    "question": "Which sublayer of the OSI Data Link Layer (Layer 2) acts as the interface between the Media Access Control (MAC) sublayer and the Network Layer, handling multiplexing so that multiple network protocols can share the same physical medium?",
+    "choices": [
+      "Logical Link Control (LLC) sublayer",
+      "Media Access Control (MAC) sublayer",
+      "Physical Layer Convergence Procedure (PLCP)",
+      "Frame Check Sequence (FCS) sublayer"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Logical Link Control (LLC) sublayer (defined in IEEE 802.2) acts as the interface between the MAC sublayer and the Network layer (Layer 3), performing multiplexing to support multiple protocols (IPv4, IPv6, AppleTalk) over the same link."
+  },
+  {
+    "id": "basics-42",
+    "category": "Networking Basics",
+    "question": "Match the ICMP message type to its numeric code: Type 0, Type 3, Type 5, and Type 11.",
+    "choices": [
+      "0: Echo Reply, 3: Destination Unreachable, 5: Redirect, 11: Time Exceeded",
+      "0: Echo Request, 3: Redirect, 5: Destination Unreachable, 11: Parameter Problem",
+      "0: Destination Unreachable, 3: Echo Reply, 5: Time Exceeded, 11: Redirect",
+      "0: Time Exceeded, 3: Redirect, 5: Echo Reply, 11: Destination Unreachable"
+    ],
+    "correctIndex": 0,
+    "explanation": "The standard ICMP codes are: Type 0 (Echo Reply), Type 3 (Destination Unreachable), Type 5 (Redirect — informs host of a faster route), and Type 11 (Time Exceeded — TTL expired, used by traceroute)."
+  },
+  {
+    "id": "basics-43",
+    "category": "Networking Basics",
+    "question": "When transitioning from IPv4 to IPv6, which header field transformations occurred to simplify packet processing?",
+    "choices": [
+      "TTL became Hop Limit, Type of Service became Traffic Class, Protocol became Next Header, and Header Checksum was removed.",
+      "TTL became Next Header, Protocol became Traffic Class, Type of Service was removed, and Checksum was kept.",
+      "TTL was removed, Protocol became Hop Limit, Type of Service became Next Header, and Checksum was kept.",
+      "TTL became Traffic Class, Protocol became Next Header, Type of Service became Hop Limit, and Checksum was kept."
+    ],
+    "correctIndex": 0,
+    "explanation": "IPv6 simplified headers for speed: Time to Live (TTL) became Hop Limit, Type of Service (ToS) became Traffic Class, and Protocol became Next Header. The Header Checksum, Flags, and Identification fields were entirely removed."
+  },
+  {
+    "id": "basics-44",
+    "category": "Networking Basics",
+    "question": "In a 48-bit MAC address, what do the two specific flag bits in the first octet indicate?",
+    "choices": [
+      "Least significant bit indicates Unicast (0)/Multicast (1); second-to-last bit indicates Globally Unique (0)/Locally Administered (1).",
+      "Least significant bit indicates Globally Unique (0)/Locally Administered (1); second-to-last bit indicates Unicast (0)/Multicast (1).",
+      "Least significant bit indicates classful network type; second-to-last bit indicates token ring configuration.",
+      "They are reserved for IPv6 tunneling headers."
+    ],
+    "correctIndex": 0,
+    "explanation": "In the first octet of a MAC address, the least significant bit (bit 0) determines if it is Unicast (0) or Multicast (1). The second-to-last bit (bit 1) determines if the MAC is Globally Unique (0, OUI-assigned) or Locally Administered (1, manually overridden)."
+  },
+  {
+    "id": "basics-45",
+    "category": "Networking Basics",
+    "question": "What version of IGMP corresponds to a Leave Group message, and how does IGMP Snooping prevent multicast degradation?",
+    "choices": [
+      "IGMPv2 introduces Leave Group; IGMP Snooping maps multicast streams exclusively to requested switch ports instead of broadcasting like a hub.",
+      "IGMPv1 introduces Leave Group; IGMP Snooping encrypts the multicast headers.",
+      "IGMPv3 introduces Leave Group; IGMP Snooping translates multicast IPs to MAC addresses.",
+      "IGMPv2 introduces Leave Group; IGMP Snooping disables multicast routing entirely."
+    ],
+    "correctIndex": 0,
+    "explanation": "IGMPv2 introduced the 'Leave Group' message. IGMP Snooping allows a Layer 2 switch to peer into IGMP transactions between hosts and routers, mapping multicast streams to ports that requested them rather than flooding all ports."
+  },
+  {
+    "id": "topo-21",
+    "category": "Network Topologies and Architecture",
+    "question": "What is the key business requirement distinction when choosing between Point-to-Point (P2P) and Point-to-Multipoint (P2MP) wireless bridge deployments?",
+    "choices": [
+      "P2P is used as a high-throughput backhaul link between two remote buildings; P2MP connects a central hub building to multiple surrounding satellite locations.",
+      "P2P is for client-server; P2MP is for ad-hoc connections.",
+      "P2P connects routers; P2MP connects only access points.",
+      "P2P is restricted to 2.4 GHz; P2MP is restricted to 5 GHz."
+    ],
+    "correctIndex": 0,
+    "explanation": "P2P (Point-to-Point) bridges connect two remote points over long distances (backhaul). P2MP (Point-to-Multipoint) bridges connect a single base station to multiple satellite receiver nodes across a campus."
+  },
+  {
+    "id": "topo-22",
+    "category": "Network Topologies and Architecture",
+    "question": "Under the cloud Shared Responsibility Model for an Infrastructure as a Service (IaaS) deployment, who is responsible for securing the hypervisor layer and patching the virtual machine's guest operating system?",
+    "choices": [
+      "The cloud provider secures the hypervisor; the customer is responsible for patching the guest operating system.",
+      "The customer secures the hypervisor; the cloud provider patches the guest operating system.",
+      "The cloud provider is responsible for both the hypervisor and guest operating system patching.",
+      "The customer is responsible for both the hypervisor and guest operating system patching."
+    ],
+    "correctIndex": 0,
+    "explanation": "In IaaS, the cloud provider manages physical security, hardware, and the virtualization hypervisor. The customer is fully responsible for managing the VM configuration, firewall rules, application stack, and guest OS patching."
+  },
+  {
+    "id": "topo-23",
+    "category": "Network Topologies and Architecture",
+    "question": "How do Type 1 (Bare-Metal) and Type 2 (Hosted) hypervisors differ in their access to physical hardware resources?",
+    "choices": [
+      "Type 1 hypervisors install directly on physical hardware and allocate resources bare-metal; Type 2 hypervisors run inside a host operating system, passing resource requests through the host OS kernel.",
+      "Type 1 hypervisors run inside a guest operating system; Type 2 hypervisors install directly on hardware.",
+      "Type 1 hypervisors only support Linux VMs; Type 2 hypervisors only support Windows VMs.",
+      "Type 1 hypervisors are stateless; Type 2 hypervisors are stateful."
+    ],
+    "correctIndex": 0,
+    "explanation": "Type 1 hypervisors (e.g. VMware ESXi) install directly on bare-metal hardware, securing maximum efficiency. Type 2 hypervisors (e.g. VirtualBox) run as an application on top of an host OS, meaning requests go through the host OS kernel, increasing overhead."
+  },
+  {
+    "id": "topo-24",
+    "category": "Network Topologies and Architecture",
+    "question": "Which physical materials completely absorb radio frequency (RF) signals, and why does 2.4 GHz penetrate drywall better than 5 GHz?",
+    "choices": [
+      "Metal and water absorb RF waves; 2.4 GHz has a longer wavelength that travels through solid obstacles better than shorter 5 GHz waves.",
+      "Concrete absorbs RF waves; 2.4 GHz has a shorter wavelength than 5 GHz.",
+      "Glass absorbs RF waves; 2.4 GHz is a digital signal while 5 GHz is analog.",
+      "Wood absorbs RF waves; 2.4 GHz runs at higher power than 5 GHz."
+    ],
+    "correctIndex": 0,
+    "explanation": "Water and metal strongly absorb/reflect electromagnetic waves. Lower frequencies (2.4 GHz) have a longer wavelength, allowing them to bend around or pass through materials like wood and drywall more easily than high frequency, short wavelength signals (5/6 GHz)."
+  },
+  {
+    "id": "topo-25",
+    "category": "Network Topologies and Architecture",
+    "question": "What are the three distinct technical service pillars defined in the 5G core architecture?",
+    "choices": [
+      "eMBB (high throughput), URLLC (ultra-low latency), and mMTC (massive IoT connection density)",
+      "LTE (4G backward), VoLTE (voice calls), and MIMO (multi-antennas)",
+      "Slicing (virtual partitioning), Beamforming (focusing), and Handshaking (security)",
+      "DoT (DNS over TLS), DoH (DNS over HTTPS), and CGNAT (carrier NAT)"
+    ],
+    "correctIndex": 0,
+    "explanation": "The 5G standard defines: eMBB (Enhanced Mobile Broadband for high throughput/streaming), URLLC (Ultra-Reliable Low-Latency Communications for critical automation/driving), and mMTC (Massive Machine-Type Communications for massive IoT sensor grids)."
+  },
+  {
+    "id": "sec-21",
+    "category": "Network Security",
+    "question": "Contrast the exact switch behaviors when a port security violation occurs under Protect, Restrict, and Shutdown modes.",
+    "choices": [
+      "Protect silently drops frames; Restrict drops frames, increments the violation counter, and sends logs/SNMP traps; Shutdown disables the port to err-disable.",
+      "Protect drops frames and sends logs; Restrict disables the port; Shutdown silently discards traffic.",
+      "Protect disables the port; Restrict silently discards traffic; Shutdown increments the counter.",
+      "Protect silently drops frames; Restrict disables the port; Shutdown sends logs without blocking traffic."
+    ],
+    "correctIndex": 0,
+    "explanation": "Protect silently drops traffic without incrementing counters or sending logs. Restrict drops traffic, increments the security violation count, and sends Syslog/SNMP traps. Shutdown immediately places the port into an err-disabled state (needs admin reset)."
+  },
+  {
+    "id": "sec-22",
+    "category": "Network Security",
+    "question": "What are the key transport, encryption, and operational differences between RADIUS and TACACS+?",
+    "choices": [
+      "RADIUS uses UDP, combines authentication/authorization, and encrypts only the password; TACACS+ uses TCP, completely separates authentication from authorization, and encrypts the entire packet payload.",
+      "RADIUS uses TCP and encrypts the entire payload; TACACS+ uses UDP and encrypts only passwords.",
+      "RADIUS separates authentication and authorization; TACACS+ combines them in UDP transport.",
+      "RADIUS is Cisco-proprietary; TACACS+ is an open industry standard."
+    ],
+    "correctIndex": 0,
+    "explanation": "RADIUS uses UDP (port 1812/1813), combines authentication and authorization, and only encrypts the password field (leaving user headers plaintext). TACACS+ uses TCP (port 49), completely separates authentication and authorization, and encrypts the entire packet payload, making it ideal for router/switch administrator management access."
+  },
+  {
+    "id": "sec-23",
+    "category": "Network Security",
+    "question": "Arrange Microsoft Active Directory components in their correct hierarchical containment order from smallest boundary to largest.",
+    "choices": [
+      "Organizational Units (OUs) -> Domains -> Trees -> Forests",
+      "Forests -> Trees -> Domains -> Organizational Units (OUs)",
+      "Domains -> Organizational Units (OUs) -> Forests -> Trees",
+      "Trees -> Domains -> Forests -> Organizational Units (OUs)"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Active Directory hierarchy is: OUs (contain users/groups inside a domain) -> Domains (logical security/DNS boundaries) -> Trees (group of domains sharing a contiguous namespace) -> Forests (the top security boundary, sharing a schema)."
+  },
+  {
+    "id": "sec-24",
+    "category": "Network Security",
+    "question": "What is the primary difference in functional intent between OAuth 2.0 and OpenID Connect (OIDC)?",
+    "choices": [
+      "OAuth 2.0 is strictly an authorization framework that issues scoped tokens; OIDC is an identity layer built on top of it to handle authentication.",
+      "OAuth 2.0 handles authentication; OIDC handles authorization.",
+      "OAuth 2.0 runs over UDP; OIDC runs over TCP.",
+      "OAuth 2.0 is for internal LAN access; OIDC is for remote public access."
+    ],
+    "correctIndex": 0,
+    "explanation": "OAuth 2.0 is an authorization framework designed to grant access to resources (APIs) via scoped tokens. OIDC (OpenID Connect) is an identity layer built directly on top of OAuth 2.0 to provide user authentication and identity verification (using ID tokens)."
+  },
+  {
+    "id": "sec-25",
+    "category": "Network Security",
+    "question": "Differentiate local SPAN, Remote SPAN (RSPAN), and Encapsulated Remote SPAN (ERSPAN) port mirroring.",
+    "choices": [
+      "SPAN mirrors locally on one switch; RSPAN mirrors across switches using a dedicated VLAN; ERSPAN mirrors across routed networks using Layer 3 GRE encapsulation.",
+      "SPAN mirrors across switches; RSPAN is local; ERSPAN is restricted to fiber optic connections.",
+      "SPAN uses GRE encapsulation; RSPAN uses VLANs; ERSPAN is local to a single switch.",
+      "They are identical protocols but supported by different vendors."
+    ],
+    "correctIndex": 0,
+    "explanation": "SPAN (Switch Port Analyzer) copies traffic locally on the same switch. RSPAN copies traffic across multiple switches over a dedicated VLAN. ERSPAN encapsulates mirrored frames into Layer 3 GRE packets, allowing them to route across different subnetworks to a collector."
+  },
+  {
+    "id": "proto-22",
+    "category": "Network Protocols and Standards",
+    "question": "What is the difference in connection negotiation between Explicit FTPS and Implicit FTPS?",
+    "choices": [
+      "Explicit FTPS starts unencrypted on port 21 and upgrades to TLS via the STARTTLS command; Implicit FTPS forces immediate TLS encryption on port 990.",
+      "Explicit FTPS requires SSH; Implicit FTPS requires certificates.",
+      "Explicit FTPS runs on port 990; Implicit FTPS runs on port 21.",
+      "Explicit FTPS is UDP; Implicit FTPS is TCP."
+    ],
+    "correctIndex": 0,
+    "explanation": "Explicit FTPS starts as standard FTP (port 21) and relies on the client sending a command like 'STARTTLS' to upgrade the session to encryption. Implicit FTPS requires the client to establish a secure SSL/TLS session immediately upon connection to port 990, refusing any plaintext startup."
+  },
+  {
+    "id": "proto-23",
+    "category": "Network Protocols and Standards",
+    "question": "Explain how DNSSEC and Bailiwick Checks protect DNS, and state the ports for DoT and DoH.",
+    "choices": [
+      "DNSSEC signs records with digital signatures; Bailiwick Checks reject out-of-scope name server responses to prevent cache poisoning; DoT uses Port 853 and DoH uses Port 443.",
+      "DNSSEC encrypts the client lookup; Bailiwick Checks manage zone transfers; DoT uses Port 443 and DoH uses Port 853.",
+      "DNSSEC replaces DNS entirely; Bailiwick Checks manage reverse PTR lookups; DoT/DoH use Port 53.",
+      "DNSSEC is a firewall; Bailiwick Checks audit root servers; DoT/DoH run over UDP."
+    ],
+    "correctIndex": 0,
+    "explanation": "DNSSEC uses cryptography to sign DNS records, ensuring authenticity. Bailiwick Checks prevent cache poisoning by verifying that a DNS server response is within the domain namespace requested. DoT (DNS over TLS) encrypts lookup traffic on Port 853, while DoH (DNS over HTTPS) hides query traffic inside standard HTTPS packets on Port 443."
+  },
+  {
+    "id": "proto-24",
+    "category": "Network Protocols and Standards",
+    "question": "State the exact source power budgets and delivered power ratings for IEEE 802.3af (PoE), 802.3at (PoE+), and 802.3bt (PoE++ Type 3 & 4).",
+    "choices": [
+      "802.3af: 15.4W source, 12.95W delivered; 802.3at: 30W source, 25.5W delivered; 802.3bt (Type 3): 60W source, 51W delivered; 802.3bt (Type 4): 100W source, 71.3W delivered.",
+      "802.3af: 30W source, 25.5W delivered; 802.3at: 15.4W source, 12.95W delivered; 802.3bt: 100W source, 90W delivered.",
+      "802.3af: 15.4W source, 15.4W delivered; 802.3at: 30W source, 30W delivered; 802.3bt: 60W source, 60W delivered.",
+      "They are determined dynamically by the WLC controller and do not have set standards."
+    ],
+    "correctIndex": 0,
+    "explanation": "Standard values for PoE power budgets are: 802.3af (PoE) provides 15.4W source / 12.95W delivered; 802.3at (PoE+ / Type 2) provides 30W source / 25.5W delivered; 802.3bt (PoE++ / Type 3) provides 60W source / 51W delivered; 802.3bt (PoE++ / Type 4) provides 100W source / 71.3W delivered."
+  },
+  {
+    "id": "proto-25",
+    "category": "Network Protocols and Standards",
+    "question": "Identify the OSPF LSA types matching their correct descriptions: Type 1, Type 2, Type 3, and Type 5.",
+    "choices": [
+      "Type 1: local area links; Type 2: generated by DR; Type 3: inter-area routes from ABR; Type 5: external routes from ASBR.",
+      "Type 1: inter-area routes; Type 2: external routes; Type 3: local area links; Type 5: generated by DR.",
+      "Type 1: generated by DR; Type 2: local area links; Type 3: external routes; Type 5: inter-area routes.",
+      "Type 1: external routes; Type 2: inter-area routes; Type 3: generated by DR; Type 5: local area links."
+    ],
+    "correctIndex": 0,
+    "explanation": "LSA Types are: Type 1 (Router LSA) is flooded within an area describing local interface links; Type 2 (Network LSA) is flooded by the Designated Router (DR) on multi-access segments; Type 3 (Summary LSA) is sent by the ABR containing routes between areas; Type 5 (AS External LSA) is sent by the ASBR to advertise external domain/internet routes."
+  },
+  {
+    "id": "hw-16",
+    "category": "Network Hardware and Connectivity",
+    "question": "What is the primary function of SR-IOV (Single-Root I/O Virtualization) in virtual adapter architectures?",
+    "choices": [
+      "It allows a single physical PCIe network adapter to expose itself as multiple virtual functions, bypassing the host hypervisor kernel to deliver packets directly to virtual machines for ultra-low latency.",
+      "It converts fiber optic light signals to electrical signals on a motherboard.",
+      "It binds multiple physical ethernet ports into a single logical channel.",
+      "It manages backup schedules across storage arrays (SAN)."
+    ],
+    "correctIndex": 0,
+    "explanation": "SR-IOV allows virtual machines to directly share PCIe physical hardware resources (like network adapters). By exposing virtual functions, the VM communicates directly with the physical network card, bypassing the host hypervisor kernel, which reduces latency and CPU overhead."
+  },
+  {
+    "id": "hw-17",
+    "category": "Network Hardware and Connectivity",
+    "question": "Differentiate Ultra Physical Contact (UPC) and Angled Physical Contact (APC) fiber connectors by color and return loss prevention.",
+    "choices": [
+      "UPC is blue with a flat endface polish prone to return loss; APC is green with an 8-degree angled polish that forces back-reflections into the fiber cladding.",
+      "UPC is green with a round endface; APC is blue with a square endface.",
+      "UPC is for single-mode fiber only; APC is for multimode fiber only.",
+      "UPC is twist-locked; APC is push-pull clip connected."
+    ],
+    "correctIndex": 0,
+    "explanation": "UPC connectors are blue with a flat endface polish; over time, physical contact degradation leads to return loss. APC connectors are green with an 8-degree angled polish, meaning any back-reflection is redirected into the fiber's cladding instead of reflecting back to the light source, minimizing return loss."
+  },
+  {
+    "id": "hw-18",
+    "category": "Network Hardware and Connectivity",
+    "question": "State the exact switch transfer delay times and operational characteristics for Standby/Offline, Line-Interactive, and Online Double Conversion UPS systems.",
+    "choices": [
+      "Standby/Offline has a ~10ms switch delay; Line-Interactive has a 2-6ms delay with voltage regulation; Online Double Conversion has a 0ms switch delay (continuous AC-to-DC-to-AC cycle).",
+      "Standby/Offline has a 0ms switch delay; Line-Interactive has a ~10ms delay; Online Double Conversion has a 2-6ms delay.",
+      "Standby/Offline has a 2-6ms delay; Line-Interactive has a 0ms delay; Online Double Conversion has a ~10ms delay.",
+      "They all operate with a constant 0ms transfer delay but support different voltage ranges."
+    ],
+    "correctIndex": 0,
+    "explanation": "Offline/Standby has a ~10ms switch time (fine for simple clients). Line-Interactive has 2-6ms switch delay and utilizes automatic voltage regulation (AVR) to correct sags/brownouts without battery drainage. Online Double Conversion has 0ms switch delay because it constantly routes incoming power through an AC-to-DC-to-AC cycle, separating the load from line sags/surges entirely."
   }
 ];
 
