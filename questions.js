@@ -3632,3 +3632,288 @@ window.FBLA_QUESTIONS = [
 ];
 
 console.log(`FBLA Questions loaded: ${window.FBLA_QUESTIONS.length} questions registered.`);
+
+
+window.FBLA_FLASHCARDS = [
+  {
+    "cat": "Basics",
+    "term": "SOHO (Small Office/Home Office)",
+    "def": "Simple LAN with flat address space, unmanaged switches, standalone APs, and consumer-grade WPA security."
+  },
+  {
+    "cat": "Basics",
+    "term": "Enterprise LAN",
+    "def": "Managed hierarchical network using VLANs, lightweight APs (LWAP) governed by a centralized WLC, and 802.1X/RADIUS security."
+  },
+  {
+    "cat": "Basics",
+    "term": "Datacenter LAN",
+    "def": "Ultra high-speed (40/100+ Gbps) redundant network using Spine-Leaf topologies and consolidated blade servers."
+  },
+  {
+    "cat": "Basics",
+    "term": "VXLAN (Virtual Extensible LAN)",
+    "def": "MAC-in-IP encapsulation protocol that uses a 24-bit VNI (Virtual Network Identifier) allowing over 16 million logical networks."
+  },
+  {
+    "cat": "Basics",
+    "term": "VLAN (802.1Q)",
+    "def": "Layer 2 broadcast domain segmentation mechanism that utilizes a 12-bit tag in the Ethernet header, supporting up to 4,096 VLAN IDs."
+  },
+  {
+    "cat": "Basics",
+    "term": "VLAN Hopping (Switch Spoofing)",
+    "def": "An exploit where an attacker sends DTP packets to negotiate a trunk link with a switch, gaining access to all VLANs on that trunk."
+  },
+  {
+    "cat": "Basics",
+    "term": "VLAN Hopping (Double Tagging)",
+    "def": "An exploit where an attacker prepends two 802.1Q tags to a frame. The switch strips the outer native VLAN tag, exposing the inner tag which routes to a target victim VLAN."
+  },
+  {
+    "cat": "Basics",
+    "term": "LLC Sublayer (802.2)",
+    "def": "The upper portion of the Layer 2 Data Link layer. It acts as the interface to the Layer 3 Network layer, multiplexing multiple protocols over the same link."
+  },
+  {
+    "cat": "Basics",
+    "term": "IGMP Snooping",
+    "def": "A switch mechanism that monitors IGMP traffic to map multicast streams exclusively to requested ports, preventing multicasts from acting like broadcasts."
+  },
+  {
+    "cat": "Basics",
+    "term": "PON (Passive Optical Network)",
+    "def": "Unpowered fiber optic distribution using optical splitters. Low cost, shares lines up to 20 km, but performance dips during peak hours."
+  },
+  {
+    "cat": "Basics",
+    "term": "AON (Active Optical Network)",
+    "def": "Powered fiber optic architecture using active switches. Dedicated customer lines, stable performance, reaching distances up to 120 km."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 1 (Physical)",
+    "def": "Deals with electrical, radio, or optical bit transmission. Includes cabling (UTP, STP, fiber), connectors (RJ-45, LC), and encoding."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 2 (Data Link)",
+    "def": "Deals with node-to-node frame transfer, physical addressing (MAC), error detection (CRC), and switching. Divided into LLC and MAC sublayers."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 3 (Network)",
+    "def": "Deals with logical addressing, packet routing across different networks, and diagnostics. Protocols: IPv4, IPv6, ICMP, ARP."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 4 (Transport)",
+    "def": "Deals with segments/datagrams, end-to-end communication, ports, flow control, and reliability (TCP vs UDP)."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 5 (Session)",
+    "def": "Manages establishing, maintaining, checkpoints, and terminating communication sessions between applications."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 6 (Presentation)",
+    "def": "Handles data formatting, syntax translation, compression, and encryption/decryption (e.g. SSL/TLS, JPEG, ASCII)."
+  },
+  {
+    "cat": "OSI & Layers",
+    "term": "OSI Layer 7 (Application)",
+    "def": "Provides network service interfaces directly to end-user applications. Protocols: HTTP, FTP, SMTP, DNS, DHCP."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "ping",
+    "def": "CLI tool that sends ICMP Echo Request packets to verify basic IP layer connectivity to a destination."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "traceroute / tracert",
+    "def": "CLI tool that maps the path to a destination by incrementing packet TTLs and listening for ICMP Type 11 (Time Exceeded) messages."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "nslookup / dig",
+    "def": "CLI diagnostics tools used to query DNS name servers to resolve domain names or inspect specific resource records (A, MX, TXT)."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "netstat",
+    "def": "CLI command that displays active TCP connections, listening ports, routing tables, and network adapter interface statistics."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "arp -a",
+    "def": "CLI command that prints the local Address Resolution Protocol cache table mapping IPv4 addresses to physical MAC addresses."
+  },
+  {
+    "cat": "Troubleshooting",
+    "term": "SICC Method",
+    "def": "Troubleshooting sub-method: analyze Symptoms, Identify affected scope, evaluate recent Changes, determine Consequential impact."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "Star Topology",
+    "def": "Topology where all endpoints connect to a central hub/switch. Easy to scale and troubleshoot, but central device is a single point of failure."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "Full Mesh Topology",
+    "def": "Topology where every device connects directly to every other device. High redundancy, but expensive and complex (needs N*(N-1)/2 links)."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "Spine-Leaf Architecture",
+    "def": "Two-tier datacenter design where leaf switches (connecting servers) connect directly to every spine switch. Eliminates Layer 2 STP delay."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "IaaS (Infrastructure as a Service)",
+    "def": "Cloud model where the provider rents raw hardware compute, storage, and hypervisors. User patches the guest OS and application stack."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "PaaS (Platform as a Service)",
+    "def": "Cloud model where the provider rents execution runtimes and databases. User only manages application code and data."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "SaaS (Software as a Service)",
+    "def": "Cloud model where the provider delivers complete applications over the web (e.g. Google Docs). Zero user infrastructure management."
+  },
+  {
+    "cat": "Topologies & Cloud",
+    "term": "Cloud Bursting",
+    "def": "Hybrid cloud scaling strategy where a private datacenter dynamically routes excess traffic to a public cloud when local utilization thresholds are breached."
+  },
+  {
+    "cat": "Security",
+    "term": "Port Security - Protect",
+    "def": "Port action that silently discards frames from unauthorized MACs. Does not block the port or log violations."
+  },
+  {
+    "cat": "Security",
+    "term": "Port Security - Restrict",
+    "def": "Port action that discards unauthorized frames, increments the security violation count, and sends Syslog messages/SNMP traps."
+  },
+  {
+    "cat": "Security",
+    "term": "Port Security - Shutdown",
+    "def": "Port action that disables the port into an err-disabled state upon violation. Requires administrator manual reset."
+  },
+  {
+    "cat": "Security",
+    "term": "RADIUS",
+    "def": "UDP-based AAA protocol. Combines authentication/authorization, and only encrypts the password field (leaves headers plaintext)."
+  },
+  {
+    "cat": "Security",
+    "term": "TACACS+",
+    "def": "TCP-based AAA protocol. Separates authentication, authorization, and accounting. Encrypts the entire packet payload; used for administrator device access."
+  },
+  {
+    "cat": "Security",
+    "term": "OAuth 2.0",
+    "def": "An authorization framework that issues scoped tokens (Access Tokens) allowing third-party apps to access API resources."
+  },
+  {
+    "cat": "Security",
+    "term": "OIDC (OpenID Connect)",
+    "def": "An authentication identity layer built directly on top of OAuth 2.0, providing user profile verification via ID Tokens."
+  },
+  {
+    "cat": "Security",
+    "term": "Active Directory Forest",
+    "def": "The top security, administrative, and schema containment boundary in Microsoft Active Directory directory structures."
+  },
+  {
+    "cat": "Security",
+    "term": "Salting",
+    "def": "Adding a cryptographically random unique string to a plaintext password before hashing to defeat pre-computed Rainbow Table attacks."
+  },
+  {
+    "cat": "Security",
+    "term": "ERSPAN",
+    "def": "Layer 3 port mirroring that encapsulates copied frames inside GRE headers, enabling routing across subnets to remote collectors."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "Explicit FTPS",
+    "def": "Secure FTP that begins unencrypted on Port 21 and upgrades to TLS encryption when the client sends the STARTTLS command."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "Implicit FTPS",
+    "def": "Secure FTP that forces immediate TLS encryption over Port 990 upon connection setup, rejecting unencrypted handshakes."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "DoT (DNS over TLS)",
+    "def": "Secure DNS lookup protocol that encrypts queries inside a TLS session over Port 853."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "DoH (DNS over HTTPS)",
+    "def": "Secure DNS lookup protocol that encrypts queries inside standard HTTPS packets over Port 443, blending with standard web traffic."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "Wi-Fi 6 (802.11ax)",
+    "def": "Wireless standard that utilizes OFDMA to partition channels into Resource Units (RUs), maximizing efficiency in ultra-dense client environments."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "WPA3 SAE",
+    "def": "Wi-Fi security replacement for PSK that uses Simultaneous Authentication of Equals (Dragonfly) to stop offline dictionary attacks."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "PoE Power Budgets",
+    "def": "802.3af (PoE) = 15.4W; 802.3at (PoE+) = 30W; 802.3bt (Type 3) = 60W; 802.3bt (Type 4) = 100W."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "OSPF LSA Type 1",
+    "def": "Router LSA flooded only within a single area. Describes the router's local interfaces and links."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "OSPF LSA Type 3",
+    "def": "Summary LSA generated by Area Border Routers (ABRs) to advertise routes between different OSPF areas."
+  },
+  {
+    "cat": "Protocols & Standards",
+    "term": "OSPF LSA Type 5",
+    "def": "AS External LSA generated by Autonomous System Boundary Routers (ASBRs) to advertise external domain/internet routes."
+  },
+  {
+    "cat": "Hardware & AppleTalk",
+    "term": "SR-IOV",
+    "def": "Single-Root I/O Virtualization. Exposes PCIe network adapters as virtual functions directly to VMs, bypassing hypervisors for zero-copy low latency."
+  },
+  {
+    "cat": "Hardware & AppleTalk",
+    "term": "APC Fiber Connectors",
+    "def": "Green Angled Physical Contact connectors polished at an 8-degree angle, forcing back-reflections into the fiber cladding to minimize return loss."
+  },
+  {
+    "cat": "Hardware & AppleTalk",
+    "term": "Online Double Conversion UPS",
+    "def": "Continuous power processing (AC-to-DC-to-AC) providing 0ms switch transfer delay and complete isolation from mains sags/surges."
+  },
+  {
+    "cat": "Hardware & AppleTalk",
+    "term": "AARP (AppleTalk Address Resolution)",
+    "def": "Legacy protocol that maps logical AppleTalk node network IDs to physical MAC addresses, similar to Ethernet ARP."
+  },
+  {
+    "cat": "Hardware & AppleTalk",
+    "term": "DDP (Datagram Delivery Protocol)",
+    "def": "Legacy AppleTalk Network layer routing protocol providing connectionless, socket-to-socket datagram delivery."
+  }
+];
+console.log(`FBLA Flashcards loaded: ${window.FBLA_FLASHCARDS.length} flashcards registered.`);

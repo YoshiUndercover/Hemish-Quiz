@@ -1647,3 +1647,20 @@ body.light-theme .badge {
     border-top: 1px solid var(--border-color);
   }
 }
+
+/* Flashcard 3D Flip Styles */
+.fc-card.flipped {
+  transform: rotateY(180deg);
+}
+
+body.light-theme .fc-front {
+  background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .fc-back {
+  background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+  border-color: var(--border-color-glow) !important;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08) !important;
+}

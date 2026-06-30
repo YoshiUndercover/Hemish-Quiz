@@ -745,9 +745,124 @@ document.addEventListener("DOMContentLoaded", () => {
       studySections.forEach(sec => sec.classList.remove("active"));
       // Activate target
       document.getElementById(`study-sec-${sectionId}`).classList.add("active");
+      
+      // If clicking flashcards section, reset/initialize
+      if (sectionId === "flashcards") {
+        initFlashcards();
+      }
     });
   });
 
+  // --- FLASHCARDS LOGIC ---
+  let flashcardState = {
+    cards: [],
+    currentIndex: 0
+  };
+
+  const fcCard = document.getElementById("fc-card");
+  const fcCardCat = document.getElementById("fc-card-cat");
+  const fcCardTerm = document.getElementById("fc-card-term");
+  const fcCardDef = document.getElementById("fc-card-def");
+  const fcProgressText = document.getElementById("fc-progress-text");
+  const fcProgressBar = document.getElementById("fc-progress-bar");
+  
+  const fcSelect = document.getElementById("fc-category-select");
+  const fcBtnPrev = document.getElementById("fc-btn-prev");
+  const fcBtnNext = document.getElementById("fc-btn-next");
+  const fcBtnShuffle = document.getElementById("fc-btn-shuffle");
+
+  function initFlashcards() {
+    const rawCards = window.FBLA_FLASHCARDS || [];
+    const cat = fcSelect ? fcSelect.value : "all";
+    
+    if (cat === "all") {
+      flashcardState.cards = [...rawCards];
+    } else if (cat === "Hardware & AppleTalk") {
+      flashcardState.cards = rawCards.filter(c => c.cat === "Hardware & AppleTalk" || c.cat === "AppleTalk");
+    } else {
+      flashcardState.cards = rawCards.filter(c => c.cat === cat);
+    }
+    
+    flashcardState.currentIndex = 0;
+    shuffleFlashcards();
+    renderFlashcard();
+  }
+
+  function shuffleFlashcards() {
+    for (let i = flashcardState.cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [flashcardState.cards[i], flashcardState.cards[j]] = [flashcardState.cards[j], flashcardState.cards[i]];
+    }
+  }
+
+  function renderFlashcard() {
+    if (!flashcardState.cards.length) return;
+    
+    if (fcCard) {
+      fcCard.classList.remove("flipped");
+    }
+    
+    const card = flashcardState.cards[flashcardState.currentIndex];
+    
+    // Smooth transition: swap content while flip is face down
+    setTimeout(() => {
+      if (fcCardCat) fcCardCat.textContent = card.cat;
+      if (fcCardTerm) fcCardTerm.textContent = card.term;
+      if (fcCardDef) fcCardDef.textContent = card.def;
+    }, 150);
+
+    // Update progress numbers and progress bar
+    if (fcProgressText) {
+      fcProgressText.textContent = `Card ${flashcardState.currentIndex + 1} of ${flashcardState.cards.length}`;
+    }
+    if (fcProgressBar) {
+      const percentage = ((flashcardState.currentIndex + 1) / flashcardState.cards.length) * 100;
+      fcProgressBar.style.width = `${percentage}%`;
+    }
+  }
+
+  if (fcCard) {
+    fcCard.addEventListener("click", () => {
+      fcCard.classList.toggle("flipped");
+    });
+  }
+
+  if (fcBtnPrev) {
+    fcBtnPrev.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (flashcardState.cards.length === 0) return;
+      flashcardState.currentIndex = (flashcardState.currentIndex - 1 + flashcardState.cards.length) % flashcardState.cards.length;
+      renderFlashcard();
+    });
+  }
+
+  if (fcBtnNext) {
+    fcBtnNext.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (flashcardState.cards.length === 0) return;
+      flashcardState.currentIndex = (flashcardState.currentIndex + 1) % flashcardState.cards.length;
+      renderFlashcard();
+    });
+  }
+
+  if (fcBtnShuffle) {
+    fcBtnShuffle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (flashcardState.cards.length === 0) return;
+      shuffleFlashcards();
+      flashcardState.currentIndex = 0;
+      renderFlashcard();
+      showNotification("Flashcards Shuffled!", "success");
+    });
+  }
+
+  if (fcSelect) {
+    fcSelect.addEventListener("change", () => {
+      initFlashcards();
+    });
+  }
+
   // Initialize page on load
   loadStats();
+  initFlashcards();
 });
